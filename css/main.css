@@ -2,6 +2,17 @@
 body {
   background: #f2f2f2;
   margin: 0;
-  font-family: 'Roboto Condensed';
+  font-family: "Roboto Condensed";
 }
-/*# sourceMappingURL=main.css.map */
+
+.navbar {
+  background: white;
+  padding: 1em;
+}
+.navbar .logo {
+  -webkit-text-decoration: 0;
+          text-decoration: 0;
+  font-weight: 700;
+  color: black;
+  font-size: 1.5em;
+}/*# sourceMappingURL=main.css.map */
