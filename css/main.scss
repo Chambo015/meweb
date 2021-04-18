@@ -49,3 +49,51 @@ section {
 .hero {
   text-align: center;
 }
+
+.left-col {
+
+  .subhead {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: grey;
+    letter-spacing: 0.3em;
+  }
+  h1 {
+    font-size: 2.5em;
+    line-height: 1.3em;
+    margin-top: .2em;
+  }
+
+  .primary-cta {
+    background: var(--logo-color);
+    color: white;
+    text-decoration: none;
+    padding: .6em 1.3em;
+    font-size: 1.4em;
+    border-radius: 5em;
+    font-weight: bold;
+    display: inline-block;
+  }
+
+  .primary-cta:hover {
+    background: white;
+    color: var(--logo-color);
+    box-shadow: inset 0 0 0 3px var(--logo-color);
+  }
+
+  .watch-video-cta {
+    display: none;
+    margin-top: 1em;
+    text-decoration: none;
+    
+
+    img {
+      margin-right: 1em;
+    }
+  }
+}
+
+.hero-img {
+  width: 70%;
+  margin-top: 3em;
+}
