@@ -21,8 +21,14 @@ body {
     margin: 0;
     font-family: "Roboto Condensed", sans-serif;
     font-size: 15px;
+    height: 100vh;
+    position: relative;
 }
-
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+}
 header {
     position: sticky;
     top: 0;
@@ -33,10 +39,6 @@ header {
     overflow: hidden;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    .container {
-        width: 90%;
-        max-width: 900px;
-        margin: 0 auto;
         .top-wrapper {
             display: flex;
             align-items: center;
@@ -62,6 +64,73 @@ header {
                         margin-right: 1.5em;
                     }
                 }
+            }
+        }
+}
+
+section.home {
+    margin: 2rem 0;
+    .container {
+        .wrapper {
+            display: flex;
+            justify-content: space-between;
+            .block {
+                width: 400px;
+                padding: 1rem;
+                border: 1px solid rgba(0,0,0,.125);
+                box-shadow: 0 .125rem .5rem rgba(0,0,0,.15)!important;
+                transition: box-shadow 0.33s ease-out;
+                cursor: pointer;
+                margin: 1rem;
+                border-radius: .4rem;
+                &:hover {
+                    box-shadow: 0 1rem 3rem rgba(0,0,0,.175)!important;
+                }
+                .block-text {
+                    width: 220px;
+                }
+                
+            }
+            .java-script {
+                background:  linear-gradient(90deg, rgba(242,242,242,1) 0%, rgba(242,242,242,1) 50%, rgba(242,242,242,0) 100%), url(../img/js.jpg) 120% /auto 100% no-repeat;
+            }
+            .css {
+                background:  linear-gradient(90deg, rgba(242,242,242,1) 0%, rgba(242,242,242,1) 60%, rgba(242,242,242,0) 100%), url(../img/css3.jpg) 120% /auto 100% no-repeat;
+                .block-text {
+                    width: 230px;
+                }
+            }
+
+        }
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    display: block;
+    width: 100vw; 
+    background: #333;
+    border-top: .5px solid $border-color;
+    padding: 1rem 0;
+    .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .abot-me {
+            color: $border-color;
+            h3, p {
+                margin: 5px;
+            }
+       
+        }
+        .icon {
+            fill: $border-color;
+            margin-right: 1rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            &:hover {
+                fill: $logo-color;
             }
         }
     }
