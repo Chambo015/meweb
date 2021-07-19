@@ -15,18 +15,18 @@ a {
 }
 /*  */
 
-
+html {
+    height: 100%;
+}
 body {
     background: $bacbackground;
     margin: 0;
     font-family: "Roboto Condensed", sans-serif;
     font-size: 15px;
-    height: 100vh;
-    position: relative;
+    height: 100%;
 }
 .container {
-    width: 90%;
-    max-width: 900px;
+    width: Min(900px, 90%);
     margin: 0 auto;
 }
 header {
@@ -69,6 +69,7 @@ header {
 }
 
 section.home {
+    min-height: calc(100% - 177px - 4rem);
     margin: 2rem 0;
     .container {
         .wrapper {
@@ -106,10 +107,8 @@ section.home {
 }
 
 .footer {
-    position: absolute;
-    bottom: 0;
     display: block;
-    width: 100vw; 
+    width: 100%; 
     background: #333;
     border-top: .5px solid $border-color;
     padding: 1rem 0;
@@ -121,6 +120,9 @@ section.home {
             color: $border-color;
             h3, p {
                 margin: 5px;
+            }
+            h3 {
+                letter-spacing: .1em;
             }
        
         }
@@ -134,4 +136,13 @@ section.home {
             }
         }
     }
+}
+
+@media screen and (max-width: 700px) {
+    section.home {
+            .wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            }
 }

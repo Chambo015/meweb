@@ -11,18 +11,20 @@ a {
 }
 
 /*  */
+html {
+  height: 100%;
+}
+
 body {
   background: #f2f2f2;
   margin: 0;
   font-family: "Roboto Condensed", sans-serif;
   font-size: 15px;
-  height: 100vh;
-  position: relative;
+  height: 100%;
 }
 
 .container {
-  width: 90%;
-  max-width: 900px;
+  width: Min(900px, 90%);
   margin: 0 auto;
 }
 
@@ -85,6 +87,7 @@ header .top-wrapper nav ul li {
 }
 
 section.home {
+  min-height: calc(100% - 177px - 4rem);
   margin: 2rem 0;
 }
 
@@ -136,10 +139,8 @@ section.home .container .wrapper .css .block-text {
 }
 
 .footer {
-  position: absolute;
-  bottom: 0;
   display: block;
-  width: 100vw;
+  width: 100%;
   background: #333;
   border-top: 0.5px solid #f5d9d9;
   padding: 1rem 0;
@@ -165,6 +166,10 @@ section.home .container .wrapper .css .block-text {
   margin: 5px;
 }
 
+.footer .container .abot-me h3 {
+  letter-spacing: .1em;
+}
+
 .footer .container .icon {
   fill: #f5d9d9;
   margin-right: 1rem;
@@ -174,5 +179,17 @@ section.home .container .wrapper .css .block-text {
 
 .footer .container .icon:hover {
   fill: #007AF3;
+}
+
+@media screen and (max-width: 700px) {
+  section.home .wrapper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 }
 /*# sourceMappingURL=main.css.map */
