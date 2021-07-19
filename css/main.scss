@@ -21,7 +21,7 @@ html {
 body {
     background: $bacbackground;
     margin: 0;
-    font-family: "Roboto Condensed", sans-serif;
+    font-family: Inter, "Roboto Condensed", sans-serif;
     font-size: 15px;
     height: 100%;
 }
@@ -30,6 +30,7 @@ body {
     margin: 0 auto;
 }
 header {
+    font-family: "Roboto Condensed";
     position: sticky;
     top: 0;
     padding: 1rem 0;
@@ -76,6 +77,7 @@ section.home {
             display: flex;
             justify-content: space-between;
             .block {
+                font-family: "Roboto Condensed";
                 width: 400px;
                 padding: 1rem;
                 border: 1px solid rgba(0,0,0,.125);
@@ -107,6 +109,7 @@ section.home {
 }
 
 .footer {
+    font-family: "Roboto Condensed";
     display: block;
     width: 100%; 
     background: #333;
