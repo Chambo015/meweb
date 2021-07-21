@@ -1,48 +1,52 @@
-.coords-content .container .coords-text {
-  font-size: 16px;
-  line-height: 1.4em;
-}
-
 .coords-content .container .coords-wrapper .coords-block {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  align-items: center;
+  flex-direction: column;
   margin: 50px auto;
 }
-
 .coords-content .container .coords-wrapper .coords-block .coords-block_head {
   width: 400px;
-  height: 50px;
-  border: 5px solid silver;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  height: 300px;
+  border: 15px solid silver;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  padding: 10px;
   border-radius: 5px 5px 0px 0px;
+  -webkit-animation: radial-pulse 1s infinite;
+          animation: radial-pulse 1s infinite;
+  cursor: pointer;
 }
-
+.coords-content .container .coords-wrapper .coords-block .coords-block_head:hover {
+  -webkit-animation: none;
+          animation: none;
+}
+@-webkit-keyframes radial-pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+}
+@keyframes radial-pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+}
 .coords-content .container .coords-wrapper .coords-block .coords-block_head .coords-block_circle {
   margin-left: 10px;
   width: 10px;
   height: 10px;
-  border-radius: 50%;
+  border-radius: 5px;
   background-color: #797676;
 }
 
-.coords-content .container .coords-wrapper .coords-block .coords-block_body {
-  width: 400px;
-  height: 250px;
-  border: 5px  solid silver;
-  border-top: 0px;
-  border-radius: 0 0 5px 5px;
-}
-/*# sourceMappingURL=scrollCoords.css.map */
+.line {
+  border: 1px solid black;
+  position: absolute;
+  top: 0;
+  height: 800px;
+  left: 50px;
+}/*# sourceMappingURL=scrollCoords.css.map */
