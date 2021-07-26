@@ -1,0 +1,110 @@
+:is(.scheduling, .hard-js) h2 {
+  margin-top: 50px;
+}
+
+section h1 {
+  cursor: pointer;
+  padding: 1em 0;
+  margin: 0;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+
+.scheduling {
+  margin: 1rem 0;
+}
+.scheduling .box {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+}
+.scheduling .box-wrapper {
+  position: relative;
+  width: 406px;
+  height: 406px;
+  border: 3px solid red;
+}
+.scheduling button {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  width: 100px;
+  height: 40px;
+  background-color: yellow;
+  border: none;
+  box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.date :is(.code_newyear) {
+  background-color: #f5d9d9;
+  padding: 5px;
+  cursor: pointer;
+}
+.date :is(.code_newyear):hover {
+  background-color: #ceb8b8;
+}
+
+.promotion {
+  padding: 70px 0;
+  position: relative;
+}
+
+.promotion__timer {
+  width: 80%;
+  margin: 0 auto;
+}
+.promotion__timer .title {
+  text-align: center;
+  font-size: 26px;
+}
+.promotion__timer .timer {
+  margin-top: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.promotion__timer .timer__block {
+  display: inline-block;
+  padding: 0 20px;
+  height: 120px;
+  width: 150px;
+  background: #fff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+  border-radius: 10px;
+}
+.promotion__timer .timer__block span {
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-size: 56px;
+  font-weight: 700;
+}
+
+.active {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.1;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}/*# sourceMappingURL=hardjs.css.map */

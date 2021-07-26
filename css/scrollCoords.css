@@ -11,21 +11,11 @@
   display: flex;
   padding: 10px;
   border-radius: 5px 5px 0px 0px;
-  -webkit-animation: radial-pulse 1s infinite;
-          animation: radial-pulse 1s infinite;
+  animation: radial-pulse 1s infinite;
   cursor: pointer;
 }
 .coords-content .container .coords-wrapper .coords-block .coords-block_head:hover {
-  -webkit-animation: none;
-          animation: none;
-}
-@-webkit-keyframes radial-pulse {
-  0% {
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-  }
+  animation: none;
 }
 @keyframes radial-pulse {
   0% {
