@@ -1,5 +1,14 @@
 .coords-content {
     .container {
+        .img_block {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .img {
+                max-width: 100%;
+            }
+        }
+        
         .coords-wrapper {
             .coords-block {
                 display: flex;

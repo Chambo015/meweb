@@ -85,6 +85,50 @@ section h1 {
   font-weight: 700;
 }
 
+.scrolling .img_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+.scrolling .img_block .img {
+  max-width: 100%;
+}
+.scrolling .coords-wrapper .coords-block {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 50px auto;
+}
+.scrolling .coords-wrapper .coords-block .coords-block_head {
+  width: 400px;
+  height: 300px;
+  border: 15px solid silver;
+  display: flex;
+  padding: 10px;
+  border-radius: 5px 5px 0px 0px;
+  animation: radial-pulse 1s infinite;
+  cursor: pointer;
+}
+.scrolling .coords-wrapper .coords-block .coords-block_head:hover {
+  animation: none;
+}
+@keyframes radial-pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+}
+.scrolling .coords-wrapper .coords-block .coords-block_head .coords-block_circle {
+  margin-left: 10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #797676;
+}
+
 .active {
   display: block;
 }

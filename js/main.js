@@ -1,6 +1,6 @@
 const blockJS = document.querySelector(".java-script");
 blockJS.addEventListener("click", () => {
-    location.href = location.origin + "/index2.html";
+    location.href = location.origin + "/hardjs.html";
 });
 
 

@@ -1,3 +1,11 @@
+.coords-content .container .img_block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.coords-content .container .img_block .img {
+  max-width: 100%;
+}
 .coords-content .container .coords-wrapper .coords-block {
   display: flex;
   align-items: center;
