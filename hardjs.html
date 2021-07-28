@@ -276,20 +276,20 @@ function setClock(selector, endTime) {
                     <p> Получить ширину и высоту элемента в px можно с помощью свойств <b>clientWidth / clientHeight</b>. Иногда ширина
                         может быть меньше на ~15px из за полосы прокрутки, если она имеется у самого элемента</p>
                     <pre><code class="language-js">/*CSS*/
-                .element {
-                    width: 400px;
-                    height: 500px;
-                    padding: 10px;
-                    border: 5px solid black;
-                }
-                /*JS*/
-                element.clientWidth // 420
-                element.clientHeight // 520
-                // (полоса прокрутки отнимает 15px)
-                element.clientWidth // 405 
-                
-                element.offsetWidth // 430 
-                element.offsetHeight // 530</code></pre>
+.element {
+    width: 400px;
+    height: 500px;
+    padding: 10px;
+    border: 5px solid black;
+}
+/*JS*/
+element.clientWidth // 420
+element.clientHeight // 520
+// (полоса прокрутки отнимает 15px)
+element.clientWidth // 405 
+
+element.offsetWidth // 430 
+element.offsetHeight // 530</code></pre>
                     <h2>CSS свойство box-sizing</h2>
                     <p>В зависимости от значения CSS свойства box-sizing мы будем получать разные значения <b>clientWidth /
                             clientHeight</b>. у box-sizing есть два значения content-box и border-box. </p>
@@ -298,7 +298,20 @@ function setClock(selector, endTime) {
                         clientWidth == (width - border - (ширина скролла, при наличии))</p>
                     <div class="img_block"><img src="img/border-box.jpg" class="img"></div>
                     <p></p>
-                
+
+                    <h2>scrollHeight высота документа</h2>
+                    <p>Получить полную высоту документа можно с помощью <b>scrollHeight</b></p>
+                    <pre><code class="language-js">document.documentElement.scrollHeight</code></pre>
+                    <p>Хотим узнать когда пользователь прокрутил сайт до конца: Текущая прокрутка сверху + Высота окна <= Полной высоты окна</p>
+                    <pre><code class="language-js">if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight)</code></pre>
+
+                    <h2>Узнать ширину Скролбара</h2>
+                    <p>Тут нужно уточнять ширина Скролбара всего окна или какого нибудь  элемента.</p>
+                    <pre><code class="language-js">// window
+const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+// element
+const scrollbarWidth = element.offsetWidth - element.clientWidth;
+                    </code></pre>
                 
                     <h2>Получим координаты элемента</h2>
                     <p class="content-text">В Java-Script существуют множество свойств, которые позволяют считывать информацию об
@@ -309,14 +322,14 @@ function setClock(selector, endTime) {
                         относительно viewport (часть страницы, показанная на экране, и которую мы видим). Возвращает данный метод в виде
                         объекта встроенного класса <b>DOMRect</b> .</p>
                     <pre><code class="language-js">const coords = elem.getBoundingClientRect();
-                coords.widt // Ширина элемента 
-                coords.height // высота элемента (могут быть отрицательными).
-                coords.left // X-координата левой границы элемента
-                coords.right // X-координата правой границы элемента
-                coords.top // Y - координата верхней границы элемента,
-                coords.bottom // Y - координата нижней границы элемента,
-                coords.x // X-координаты начала элемента относительно окна,
-                coords.y // Y-координаты начала элемента относительно окна,</code></pre>
+coords.widt // Ширина элемента 
+coords.height // высота элемента (могут быть отрицательными).
+coords.left // X-координата левой границы элемента
+coords.right // X-координата правой границы элемента
+coords.top // Y - координата верхней границы элемента,
+coords.bottom // Y - координата нижней границы элемента,
+coords.x // X-координаты начала элемента относительно окна,
+coords.y // Y-координаты начала элемента относительно окна,</code></pre>
                     <p class="content-text">Создал илюстрацию которая при наведении покажет координаты элемента. Зеленые относительно
                         окна, синие относительно страницы</p>
                 
@@ -335,15 +348,15 @@ function setClock(selector, endTime) {
                     <p class="content-text">Для начала находим элемент с помошью метода <b>querySelector()</b>. Далее получаем его
                         координаты.</p>
                     <pre><code class="language-js">const block = document.querySelector(".coords-block_head");
-                const coordsBlock = block.getBoundingClientRect();
-                    // относительно окна
-                    coordsBlock.top // Верхний край элемента 
-                    coordsBlock.left // Левый карай элемента 
-                    coordsBlock.bottom // Нижний край элемента
-                    coordsBlock.right // Правый край элемента 
-                    // относительно страницы
-                    coordsBlock.top + window.pageYOffset // Верхний край элемента
-                    coordsBlock.bottom + window.pageYOffset // Нижний край элемента</code></pre>
+const coordsBlock = block.getBoundingClientRect();
+    // относительно окна
+    coordsBlock.top // Верхний край элемента 
+    coordsBlock.left // Левый карай элемента 
+    coordsBlock.bottom // Нижний край элемента
+    coordsBlock.right // Правый край элемента 
+    // относительно страницы
+    coordsBlock.top + window.pageYOffset // Верхний край элемента
+    coordsBlock.bottom + window.pageYOffset // Нижний край элемента</code></pre>
                 </div>
                 <!-- /.date -->
             </div>
