@@ -84,25 +84,56 @@ window.addEventListener("DOMContentLoaded", () => {
       setClock(".timer", newYear)
       /* Таймер конец  */
 
+      /* Функция = Плавна прокрутка к элементу */
+      function smoothScroll(element) {
+            const pageY = element.getBoundingClientRect().top - 100; 
+            window.scrollBy({
+                  top: pageY,
+                  behavior: "smooth"
+            })
+          
+      }
+      /* Конец Плавной прокрутки */
 
-      /* Спойлеры начало */
+      /* Спойлеры (таб) начало */
       const hard = document.querySelector('.hard-js'),
             h1links = hard.querySelectorAll('h1'),
-            childs = hard.querySelectorAll('.child');
+            childs = hard.querySelectorAll('.child'),
+            closeBtn = hard.querySelector('.close_icon');
       hard.addEventListener('click', event => {
             h1links.forEach((item, i) => {
-                  if (event.target == item) {
-                        childs.forEach(child => {
-                              if (childs[i] == child) {
-                                    child.classList.toggle("hide")
+                  if (event.target == item ) {
+                        childs.forEach(child => {        
+                              if (childs[i] == child ) {
+                                    child.classList.toggle("hide");
+                                    child.parentElement.classList.toggle("border_shadow");
+                                    if (!child.classList.contains("hide")) {
+                                          closeBtn.classList.add("close_icon_active");
+                                          closeBtn.classList.remove("close_icon_hide");
+                                    } else {
+                                          closeBtn.classList.remove("close_icon_active");
+                                          closeBtn.classList.add("close_icon_hide");
+                                    }
+                                    smoothScroll(item)
+                                   
                               } else {
                                     child.classList.add("hide");
+                                    child.parentElement.classList.add("border_shadow")
+                                    
                               }
                               
                         })
-                        
-                        
+                       
+                  } else if (event.target == closeBtn || event.target == closeBtn.firstElementChild || event.target == closeBtn.lastElementChild) {
+                        childs.forEach(child => {
+                                    child.classList.add("hide");
+                                    child.parentElement.classList.add("border_shadow")
+                                    closeBtn.classList.remove("close_icon_active");
+                                    closeBtn.classList.add("close_icon_hide");
+
+                        })
                   }
+
             })
             
       })

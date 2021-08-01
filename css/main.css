@@ -35,6 +35,7 @@ p {
 }
 
 header {
+  z-index: 99;
   font-family: "Roboto Condensed";
   position: sticky;
   top: 0;

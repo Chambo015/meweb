@@ -1,12 +1,15 @@
 :is(.scheduling, .hard-js) h2 {
       margin-top: 50px;
 }
-section h1 {
-      cursor: pointer;
-      padding: 1em 0;
-      margin: 0;
-      border-top: 1px solid black;
-      border-bottom: 1px solid black;
+section  {
+      .tab {
+            margin: 20px 0;
+            h1 {
+                  margin: 0;
+                  cursor: pointer;
+                  padding: 10px;   
+            }
+      }
 }
 .scheduling {
       margin: 1rem 0;
@@ -159,21 +162,92 @@ section h1 {
 }
 .hide {
       display: none;
+
+}
+.border_shadow {
+        border: 1px solid silver;
+        -webkit-box-shadow: 0 4px 42px rgb(0 0 0 / 5%);
+        box-shadow: 0 4px 42px rgb(0 0 0 / 5%);
 }
 
-.fade {
-      animation-name: fade;
-      animation-duration: 1s;
-}
 
-@keyframes fade {
+@keyframes anim {
       from {
             opacity: 0.1;
-            transform: translateY(35px);
+            transform: rotate(0deg);
       }
 
       to {
+            
             opacity: 1;
-            transform: translateY(0);
+            transform: rotate(225deg);
       }
 }
+@keyframes reverse {
+      from {
+            opacity: 1;
+            transform: rotate(225deg);
+      }
+
+      to {
+            
+           opacity: 0;
+           transform: rotate(0deg);
+      }
+}
+
+.hard-js {
+      position: relative;
+      .parent_btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+            
+
+            .close_icon {
+                  position: fixed;
+                  width: 50px;
+                  height: 50px;
+                  align-items: center;
+                   justify-content: center;
+                   cursor: pointer;
+                    display: flex;
+                    opacity: 0;
+
+                   &_active {
+                         animation-name: anim;
+                         animation-duration: 1s;
+                         transform: rotate(225deg);
+                         opacity: 1;
+                        
+                    
+                         
+                   }
+                   &_hide {
+                         animation-name: reverse;
+                         animation-duration: 1s;
+                         opacity: 0;
+
+                   }
+                   
+                  .minus {
+                         position: absolute;
+                        display: block;
+                        width: 30px;
+                        height: 5px;
+                        background-color: silver;   
+                        border-radius: 2px;
+                  }
+                  .plus {
+                         position: absolute;
+                         display: block;
+                         width: 5px;
+                         height: 30px;
+                         background-color: silver;
+                         border-radius: 2px;
+                  }
+
+            }
+      }
+}
+

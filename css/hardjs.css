@@ -2,12 +2,13 @@
   margin-top: 50px;
 }
 
-section h1 {
-  cursor: pointer;
-  padding: 1em 0;
+section .tab {
+  margin: 20px 0;
+}
+section .tab h1 {
   margin: 0;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  cursor: pointer;
+  padding: 10px;
 }
 
 .scheduling {
@@ -137,18 +138,74 @@ section h1 {
   display: none;
 }
 
-.fade {
-  animation-name: fade;
-  animation-duration: 1s;
+.border_shadow {
+  border: 1px solid silver;
+  -webkit-box-shadow: 0 4px 42px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 42px rgba(0, 0, 0, 0.05);
 }
 
-@keyframes fade {
+@keyframes anim {
   from {
     opacity: 0.1;
-    transform: translateY(35px);
+    transform: rotate(0deg);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: rotate(225deg);
   }
+}
+@keyframes reverse {
+  from {
+    opacity: 1;
+    transform: rotate(225deg);
+  }
+  to {
+    opacity: 0;
+    transform: rotate(0deg);
+  }
+}
+.hard-js {
+  position: relative;
+}
+.hard-js .parent_btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.hard-js .parent_btn .close_icon {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  display: flex;
+  opacity: 0;
+}
+.hard-js .parent_btn .close_icon_active {
+  animation-name: anim;
+  animation-duration: 1s;
+  transform: rotate(225deg);
+  opacity: 1;
+}
+.hard-js .parent_btn .close_icon_hide {
+  animation-name: reverse;
+  animation-duration: 1s;
+  opacity: 0;
+}
+.hard-js .parent_btn .close_icon .minus {
+  position: absolute;
+  display: block;
+  width: 30px;
+  height: 5px;
+  background-color: silver;
+  border-radius: 2px;
+}
+.hard-js .parent_btn .close_icon .plus {
+  position: absolute;
+  display: block;
+  width: 5px;
+  height: 30px;
+  background-color: silver;
+  border-radius: 2px;
 }/*# sourceMappingURL=hardjs.css.map */
