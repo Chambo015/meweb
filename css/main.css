@@ -121,13 +121,14 @@ section.home .container .wrapper .css .block-text {
   align-items: center;
   justify-content: space-between;
 }
-.footer .container .abot-me {
+.footer .container .about-me {
+  display: flex;
   color: #f5d9d9;
 }
-.footer .container .abot-me h3, .footer .container .abot-me p {
+.footer .container .about-me h3, .footer .container .about-me p {
   margin: 5px;
 }
-.footer .container .abot-me h3 {
+.footer .container .about-me h3 {
   letter-spacing: 0.1em;
 }
 .footer .container .icon {

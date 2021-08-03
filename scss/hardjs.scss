@@ -1,5 +1,8 @@
-:is(.scheduling, .hard-js) h2 {
+:is(.hard-js) h2 {
       margin-top: 50px;
+}
+:is(.hard-js) h3 {
+      margin-top: 25px;
 }
 section  {
       .tab {
@@ -8,6 +11,13 @@ section  {
                   margin: 0;
                   cursor: pointer;
                   padding: 10px;   
+            }
+            .important {
+                  width: 95%;
+                  margin: 1.5em auto;
+                  border: 2px solid #bebbbb;
+                  border-radius: 5px;
+                  padding: 10px;
             }
       }
 }

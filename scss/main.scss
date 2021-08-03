@@ -110,7 +110,9 @@ section.home {
             }
 
         }
+        
     }
+  
 }
 
 .footer {
@@ -124,7 +126,8 @@ section.home {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        .abot-me {
+        .about-me {
+            display: flex;
             color: $border-color;
             h3, p {
                 margin: 5px;
