@@ -6,6 +6,11 @@
   margin-top: 25px;
 }
 
+code {
+  background-color: #e7e3e3;
+  padding: 2px;
+}
+
 section .tab {
   margin: 20px 0;
 }
@@ -20,6 +25,9 @@ section .tab .important {
   border: 2px solid #bebbbb;
   border-radius: 5px;
   padding: 10px;
+}
+section .tab .important h3 {
+  margin-top: 5px;
 }
 
 .scheduling {

@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <div class="site">
     <header>
         <div class="container">
             <div class="top-wrapper">
@@ -550,9 +551,88 @@ vasya.online // true</code></pre>
     <li>Конструкторы следует вызывать при помощи оператора <b>new</b>. Такой вызов создаёт пустой <i>this</i> в начале выполнения и возвращает
     заполненный в конце.</li>
 </ul>
-                        <pre><code class="language-js"></code></pre>
-                        <pre><code class="language-js"></code></pre>
-                        <pre><code class="language-js"></code></pre>
+<h2>prototype</h2>
+<p><i>JavaScript</i> часто описывают как язык <b>прототипного наследования</b> — каждый объект, имеет <b>объект-прототип</b>, который выступает
+как шаблон, от которого объект наследует методы и свойства. Объект-прототип так же может иметь свой прототип и
+наследовать его свойства и методы и так далее. Это часто называется <b>цепочкой прототипов</b> и объясняет почему одним
+объектам доступны свойства и методы которые определены в других объектах.</p>
+<p>Точнее, свойства и методы определяются в свойстве <b>prototype</b> функции-конструктора объектов, а не в самих объектах. Таким образом объект, созданный с помощью 
+<b>new Object() или {}</b> наследует <i>Object.prototype</i>. Аналогично объект созданный посредством <b>new Array() или []</b>, применяет в качестве прототипа <i>Array.prototype</i></p>
+<div class="important">
+    <h3>Примечание</h3>
+    <p>С <i>ES6</i> вы можете косвенно обращаться к объекту прототипа объекта <code>Object.getPrototypeOf(obj)</code>.</p>
+    <p>Важно понимать, что существует различие между <b>прототипом объекта</b> и свойством <b>prototype</b> в функциях-конструкторах. Первое свойство является свойством каждого экземпляра, а второе - свойством конструктора. То есть <code>Object.getPrototypeOf(new Foobar())</code> относится к тому же объекту, что и <code>Foobar.prototype.</code></p>
+</div>
+<h3>Где определены наследуемые свойства и методы?</h3>
+<p>Если мы зайдем на страницу со ссылкой <i title="представляет собой хранилище документации и обучающий ресурс для веб-разработчиков,">Object MDN</i> мы увидим в левой части большое количество свойств и методов - это намного больше, чем количество унаследованных членов, доступных для какого-нибудь созданного объекта . <b>Некоторые из них унаследованы, а некоторые нет - почему это?</b></p>
+<p>Наследованные свойства это те, что определены в свойстве <code>prototype</code>, то есть те, которые начинаются с <b>Object.prototype.</b>, а не те, которые начинаются с простого <b>Object.</b></p> 
+<p>
+    Значение свойства
+    <b>prototype</b> - это объект, который в основном представляет собой контейнер для хранения свойств и методов, которые мы хотим
+    наследовать объектами, расположенными дальше по цепочке прототипов.
+</p>
+<ul>
+    <li>Таким образом <code>Object.prototype.watch(), Object.prototype.valueOf() и т. д.</code> доступны для любых типов объектов, которые
+    наследуются от <b>Object.prototype</b>, включая новые экземпляры объектов, созданные из конструктора.</li>
+    <li><code>Object.is(), Object.keys() </code>и другие члены, не определённые в контейнере <b>prototype</b>, не наследуются экземплярами объектов
+    или типами объектов, которые наследуются от <b>Object.prototype.</b> Это методы / свойства, доступные только в конструкторе
+    Object().</li>
+</ul>
+<h3>F.prototype</h3>
+<p>Как мы помним, новые объекты могут быть созданы с помощью функции-конструктора <code>new F()</code>. Для полноты картины создадим функцию конструктор</p>
+                        <pre><code class="language-js">let humans = {
+    eat: true,
+    constructor: User,
+};
+
+function User(name, id) {
+    // свойства
+    this.name = name;
+    this.id = id;
+    this.human = true;
+    // методы
+    this.enter = function() {
+        this.online = true;
+    };
+};
+
+User.prototype = humans; **
+
+const ivan = new User('Иван', 28);</code></pre>
+<p><b>**</b> Установка <code>User.prototype = humans</code> буквально говорит интерпретатору следующее: "При создании объекта через <code>new User()</code>
+запиши ему <code>humans</code> в <code>[[Prototype]]</code>".</p>
+<div class="important">
+    <h3>F.prototype используется только в момент вызова new F()</h3>
+    <p><code>F.prototype</code> используется только при вызове <code>new F()</code> и присваивается в качестве свойства <code>[[Prototype]]</code> нового объекта.
+    После этого <code>F.prototype</code> и новый объект ничего не связывает. Следует понимать это как <b>«единоразовый подарок» объекту</b>.</p>
+    
+    <p>После создания <code>F.prototype</code> может измениться, и новые объекты, созданные с помощью <code>new F()</code>, будут иметь другой объект в
+        качестве <code>[[Prototype]]</code>, но уже существующие объекты сохранят старый.</p>
+</div>
+
+<h3>constructor</h3>
+<p>По умолчанию <code>"prototype"</code> – объект с единственным свойством <code>constructor</code>, которое ссылается на функцию-конструктор.</p>
+                        <pre><code class="language-js">function User() {}
+
+/* прототип по умолчанию
+User.prototype = { constructor: User };
+*/
+
+User.prototype.constructor == User // true
+
+let user = new User;
+user.constructor == User // true
+
+// Мы можем использовать свойство constructor существующего объекта для создания нового.
+let user2 = new user.constructor();</code></pre>
+<p><b>В частности, если мы заменим прототип по умолчанию на другой объект, то свойства <code>"constructor"</code> в нём не будет.</b></p>
+                        <pre><code class="language-js">function Rabbit() {}
+Rabbit.prototype = {
+    jumps: true
+};
+
+let rabbit = new Rabbit();
+alert(rabbit.constructor === Rabbit); // false</code></pre>
                         <pre><code class="language-js"></code></pre>
                         <pre><code class="language-js"></code></pre>
                     </div>
@@ -592,6 +672,7 @@ vasya.online // true</code></pre>
             </div>
         </div>
     </footer>
+    </div>
 </body>
 
 </html>

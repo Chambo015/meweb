@@ -19,18 +19,23 @@ html {
     height: 100%;
 }
 body {
+    height: 100%;
     background: $bacbackground;
     margin: 0;
     font-family: Inter, "Roboto Condensed", sans-serif;
     font-size: 15px;
-    height: 100%;
 }
 p {
       font-size: 16px;
       line-height: 1.4em;
 }
+.site {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 .container {
-    width: Min(900px, 90%);
+    width: Min(1170px, 90%); 
     margin: 0 auto;
 }
 header {
@@ -41,7 +46,7 @@ header {
     padding: 1rem 0;
     background-color: #f2f2f2c2;
     border-bottom: .5px solid $border-color;
-    height: 90px;
+    min-height: 90px;
     overflow: hidden;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
@@ -75,12 +80,12 @@ header {
 }
 
 section.home {
-    min-height: calc(100% - 177px - 4rem);
+    flex: 1 1 auto;
     margin: 2rem 0;
     .container {
         .wrapper {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             .block {
                 font-family: "Roboto Condensed";
                 width: 400px;
@@ -127,7 +132,7 @@ section.home {
         align-items: center;
         justify-content: space-between;
         .about-me {
-            display: flex;
+            
             color: $border-color;
             h3, p {
                 margin: 5px;
