@@ -609,7 +609,67 @@ const ivan = new User('Иван', 28);</code></pre>
     <p>После создания <code>F.prototype</code> может измениться, и новые объекты, созданные с помощью <code>new F()</code>, будут иметь другой объект в
         качестве <code>[[Prototype]]</code>, но уже существующие объекты сохранят старый.</p>
 </div>
+<h3>Задачки. Изменяем "prototype"</h3>
+<div class="code-grid">
+    <pre class="code-block code-block__left"><code class="language-js">function Rabbit() {}
+Rabbit.prototype = {
+    eats: true
+};
 
+let rabbit = new Rabbit();
+
+// Присвоение нового значения свойству Rabbit.prototype
+Rabbit.prototype = {};
+
+alert( rabbit.eats ); // ?</code></pre>
+    <pre class="code-block"><code class="language-js">function Rabbit() {}
+Rabbit.prototype = {
+    eats: true
+};
+
+let rabbit = new Rabbit();
+
+// Изменяем свойство объекта по ссылке
+Rabbit.prototype.eats = false;
+
+alert( rabbit.eats ); // ?</code></pre>
+    <pre class="code-block code-block__left"><code class="language-js">function Rabbit() {}
+Rabbit.prototype = {
+    eats: true
+};
+
+let rabbit = new Rabbit();
+
+// Операция delete
+delete rabbit.eats;
+
+alert( rabbit.eats ); // ?</code></pre>
+    <pre class="code-block"><code class="language-js">function Rabbit() {}
+Rabbit.prototype = {
+    eats: true
+};
+
+let rabbit = new Rabbit();
+
+// Удаление свойство eats из прототипа
+delete Rabbit.prototype.eats;
+
+alert( rabbit.eats ); // ?</code></pre>
+</div>
+<ol>
+    <li><p>true. Присвоение нового значения свойству Rabbit.prototype влияет на [[Prototype]] вновь создаваемых объектов, но не на прототип уже существующих.</p></li>
+    <li><p>false.
+
+        Объекты присваиваются по ссылке. Не создаётся копия Rabbit.prototype, это всегда один объект, на который ссылается и Rabbit.prototype, и [[Prototype]] объекта rabbit.
+        
+        Таким образом, когда мы изменяем этот объект по одной ссылке, изменения видны и по другой.</p></li>
+    <li><p>true.
+
+        Операция delete применяется к свойствам конкретного объекта, на котором она вызвана. Здесь delete rabbit.eats пытается удалить свойство eats из объекта rabbit, но его там нет. Таким образом, просто ничего не произойдёт.</p></li>
+    <li><p>undefined.
+
+        Свойство eats удалено из прототипа, оно больше не существует.</p></li>
+</ol>
 <h3>constructor</h3>
 <p>По умолчанию <code>"prototype"</code> – объект с единственным свойством <code>constructor</code>, которое ссылается на функцию-конструктор.</p>
                         <pre><code class="language-js">function User() {}
@@ -627,12 +687,18 @@ user.constructor == User // true
 let user2 = new user.constructor();</code></pre>
 <p><b>В частности, если мы заменим прототип по умолчанию на другой объект, то свойства <code>"constructor"</code> в нём не будет.</b></p>
                         <pre><code class="language-js">function Rabbit() {}
+
 Rabbit.prototype = {
     jumps: true
 };
 
 let rabbit = new Rabbit();
-alert(rabbit.constructor === Rabbit); // false</code></pre>
+alert(rabbit.constructor === Rabbit); // false
+// Или мы можем заново создать свойство constructor:
+Rabbit.prototype = {
+    jumps: true,
+    constructor: Rabbit
+};</code></pre>
                         <pre><code class="language-js"></code></pre>
                         <pre><code class="language-js"></code></pre>
                     </div>

@@ -14,11 +14,13 @@ code {
 section .tab {
   margin: 20px 0;
 }
+
 section .tab h1 {
   margin: 0;
   cursor: pointer;
   padding: 10px;
 }
+
 section .tab .important {
   width: 95%;
   margin: 1.5em auto;
@@ -26,6 +28,7 @@ section .tab .important {
   border-radius: 5px;
   padding: 10px;
 }
+
 section .tab .important h3 {
   margin-top: 5px;
 }
@@ -33,18 +36,21 @@ section .tab .important h3 {
 .scheduling {
   margin: 1rem 0;
 }
+
 .scheduling .box {
   position: absolute;
   width: 100px;
   height: 100px;
   background-color: blue;
 }
+
 .scheduling .box-wrapper {
   position: relative;
   width: 406px;
   height: 406px;
   border: 3px solid red;
 }
+
 .scheduling button {
   margin-bottom: 10px;
   margin-top: 10px;
@@ -62,6 +68,7 @@ section .tab .important h3 {
   padding: 5px;
   cursor: pointer;
 }
+
 .date :is(.code_newyear):hover {
   background-color: #ceb8b8;
 }
@@ -75,16 +82,19 @@ section .tab .important h3 {
   width: 80%;
   margin: 0 auto;
 }
+
 .promotion__timer .title {
   text-align: center;
   font-size: 26px;
 }
+
 .promotion__timer .timer {
   margin-top: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .promotion__timer .timer__block {
   display: inline-block;
   padding: 0 20px;
@@ -97,6 +107,7 @@ section .tab .important h3 {
   text-align: center;
   border-radius: 10px;
 }
+
 .promotion__timer .timer__block span {
   display: block;
   margin-top: 20px;
@@ -111,15 +122,18 @@ section .tab .important h3 {
   justify-content: center;
   margin-top: 30px;
 }
+
 .scrolling .img_block .img {
   max-width: 100%;
 }
+
 .scrolling .coords-wrapper .coords-block {
   display: flex;
   align-items: center;
   flex-direction: column;
   margin: 50px auto;
 }
+
 .scrolling .coords-wrapper .coords-block .coords-block_head {
   width: 400px;
   height: 300px;
@@ -130,9 +144,11 @@ section .tab .important h3 {
   animation: radial-pulse 1s infinite;
   cursor: pointer;
 }
+
 .scrolling .coords-wrapper .coords-block .coords-block_head:hover {
   animation: none;
 }
+
 @keyframes radial-pulse {
   0% {
     box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.5);
@@ -141,6 +157,7 @@ section .tab .important h3 {
     box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
   }
 }
+
 .scrolling .coords-wrapper .coords-block .coords-block_head .coords-block_circle {
   margin-left: 10px;
   width: 10px;
@@ -159,7 +176,6 @@ section .tab .important h3 {
 
 .border_shadow {
   border: 1px solid silver;
-  -webkit-box-shadow: 0 4px 42px rgba(0, 0, 0, 0.05);
   box-shadow: 0 4px 42px rgba(0, 0, 0, 0.05);
 }
 
@@ -173,6 +189,7 @@ section .tab .important h3 {
     transform: rotate(225deg);
   }
 }
+
 @keyframes reverse {
   from {
     opacity: 1;
@@ -183,14 +200,17 @@ section .tab .important h3 {
     transform: rotate(0deg);
   }
 }
+
 .hard-js {
   position: relative;
 }
+
 .hard-js .parent_btn {
   position: absolute;
   top: 0;
   right: 0;
 }
+
 .hard-js .parent_btn .close_icon {
   position: fixed;
   width: 50px;
@@ -201,17 +221,20 @@ section .tab .important h3 {
   display: flex;
   opacity: 0;
 }
+
 .hard-js .parent_btn .close_icon_active {
   animation-name: anim;
   animation-duration: 1s;
   transform: rotate(225deg);
   opacity: 1;
 }
+
 .hard-js .parent_btn .close_icon_hide {
   animation-name: reverse;
   animation-duration: 1s;
   opacity: 0;
 }
+
 .hard-js .parent_btn .close_icon .minus {
   position: absolute;
   display: block;
@@ -220,6 +243,7 @@ section .tab .important h3 {
   background-color: silver;
   border-radius: 2px;
 }
+
 .hard-js .parent_btn .close_icon .plus {
   position: absolute;
   display: block;
@@ -227,4 +251,16 @@ section .tab .important h3 {
   height: 30px;
   background-color: silver;
   border-radius: 2px;
-}/*# sourceMappingURL=hardjs.css.map */
+}
+
+.code-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.code-grid .code-block {
+  flex-basis: 48%;
+  font-size: 0.9em;
+}
+/*# sourceMappingURL=hardjs.css.map */

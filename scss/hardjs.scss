@@ -184,8 +184,8 @@ section  {
 }
 .border_shadow {
         border: 1px solid silver;
-        -webkit-box-shadow: 0 4px 42px rgb(0 0 0 / 5%);
-        box-shadow: 0 4px 42px rgb(0 0 0 / 5%);
+        -webkit-box-shadow: 0 4px 42px rgba(0, 0, 0, 0.05%);
+        box-shadow: 0 4px 42px rgba(0, 0, 0, 0.05%);
 }
 
 
@@ -269,3 +269,14 @@ section  {
       }
 }
 
+.code-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-evenly;
+      .code-block {
+            flex-basis: 48%;
+            font-size: 0.9em;
+            
+      }
+      
+}
